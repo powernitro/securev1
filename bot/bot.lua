@@ -88,32 +88,17 @@ function create_config( )
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[》Beyond Reborn v1
-An advanced administration bot based on https://valtman.name/telegram-cli
+    info_text = [[🤖secure v1.5🤖
 
-》https://github.com/BeyondTeam/BDReborn 
+👤Developer: @im_Einstein 
 
-》Admins :
-》@SoLiD ➣ Founder & Developer《
-》@Makan ➣ Developer《
-》@Rixel ➣ Developer 《
-》@Exacute ➣ Developer《
-》@CiveY ➣ Developer
-》@ArmanDev ➣ Manager《
-》@MrPars ➣ Manager《
+👤Manager: @im_Einstein 
 
-》Special thanks to :
-》@Vysheng
-》@MrHalix
-》@K_a_I_i_I_i_n_u_x
-》@Nero_Dev
-》And Beyond Team Members
+💌Special thanks to magic team members
 
-》Our channel :
-》@BeyondTeam《
+⚜Our channel : @MAGIC_TEAAM
 
-》Our website :
-》http://BeyondTeam.ir
+ :D
 ]],
   }
   serialize_to_file(config, './data/config.lua')
