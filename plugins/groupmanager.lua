@@ -6,13 +6,13 @@ local lang = redis:get(hash)
    if not lang then
         return '❗️_You are not bot admin_❗️'
 else
-     return '❗️❗️شما مدیر ربات نمیباشید❗️'
+     return '❗️شما مدیر ربات نمیباشید❗️'
     end
 end
     local data = load_data(_config.moderation.data)
   if data[tostring(msg.chat_id_)] then
 if not lang then
-   return '♻️_Group is already added_🛡🛡'
+   return '♻️_Group is already added_🛡'
 else
 return '♻️گروه در لیست گروه های مدیریتی ربات هم اکنون موجود است🛡'
   end
@@ -110,17 +110,17 @@ local data = load_data(_config.moderation.data)
     end
 if data[tostring(msg.chat_id_)]['filterlist'][(word)] then
    if not lang then
-         return "🔏_`Word`_ *"..word.."* _`is already filtered`_📋"
+         return "🔏_Word_ *"..word.."* _is already filtered_📋"
             else
-         return "🔏_`کلمه`_ *"..word.."* _`از قبل فیلتر بود`_📋"
-📋    end
+         return "🔏_کلمه_ *"..word.."* _از قبل فیلتر بود_📋"
+    end
 end
    data[tostring(msg.chat_id_)]['filterlist'][(word)] = true
      save_data(_config.moderation.data, data)
    if not lang then
-         return "🔏_`Word`_ *"..word.."* _`added to filtered words list`_📋"
+         return "🔏_Word_ *"..word.."* _added to filtered words list_📋"
             else
-         return "🔏_`کلمه`_ *"..word.."* _`به لیست کلمات فیلتر شده اضافه شد`_📋"
+         return "🔏_کلمه_ *"..word.."* _به لیست کلمات فیلتر شده اضافه شد_📋"
     end
 end
 
@@ -142,7 +142,7 @@ local lang = redis:get(hash)
      end
       else
        if not lang then
-         return "✒️✒️_Word_ *"..word.."* _is not filtered_📋"
+         return "✒️_Word_ *"..word.."* _is not filtered_📋"
        elseif lang then
          return "✒️_کلمه_ *"..word.."* _از قبل فیلتر نبود_📋"
       end
@@ -452,11 +452,11 @@ end
 end
     if cmd == "res" then
     if not lang then
-     text = "Result for [ ".. check_markdown(data.type_.user_.username_) .." ] :\n"
+     text = "👤Result for [ ".. check_markdown(data.type_.user_.username_) .." ] :\n"
     .. "".. check_markdown(data.title_) .."\n"
     .. " [".. data.id_ .."]"
   else
-     text = "اطلاعات برای [ ".. check_markdown(data.type_.user_.username_) .." ] :\n"
+     text = "👤اطلاعات برای [ ".. check_markdown(data.type_.user_.username_) .." ] :\n"
     .. "".. check_markdown(data.title_) .."\n"
     .. " [".. data.id_ .."]"
        return tdcli.sendMessage(arg.chat_id, 0, 1, text, 1, 'md')
