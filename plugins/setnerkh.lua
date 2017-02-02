@@ -25,7 +25,7 @@ return '‼️شما ادمین نیستید‼️'
 end 
     local hash = ('bot:nerkh') 
     redis:del(hash) 
-return '🗑🗑پاک شد🗑' 
+return '🗑پاک شد🗑' 
 end 
 end 
 return { 
@@ -40,6 +40,3 @@ patterns ={
 }, 
 run = run 
 }
-
-
-
