@@ -1914,7 +1914,6 @@ return "📞بیصدا کردن مخاطب غیر فعال شد🔊"
 end
 end
 end
-end
 ---------------Mute Forward-------------------
 local function mute_forward(msg, data, target) 
 local hash = "gp_lang:"..msg.chat_id_
