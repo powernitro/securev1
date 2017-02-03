@@ -2055,7 +2055,7 @@ save_data(_config.moderation.data, data)
 if not lang then
  return "🗂*Mute Document* _Has Been Enabled_🔇"
 else
- return "🗂بیصدا کردن اسناد فعال شد🔇"🔊
+ return "🗂بیصدا کردن اسناد فعال شد🔇"
 end
 end
 end
