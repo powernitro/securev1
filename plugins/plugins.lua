@@ -43,7 +43,7 @@ local function list_all_plugins(only_enabled)
       text = text..nsum..'.'..status..' '..v..' \n'
     end
   end
-  local text = text..'\n\n'..nsum..' *plugins installed*\n\n'..nact..' _plugins enabled_\n\n'..nsum-nact..' _plugins disabled_'..tmp
+  local text = text..'\n\n'..nsum..' 📂*plugins installed*\n\n'..nact..' ✔️_plugins enabled_\n\n'..nsum-nact..' ✖️_plugins disabled_'..tmp
   return text
 end
 
@@ -68,7 +68,7 @@ local function list_plugins(only_enabled)
      -- text = text..v..'  '..status..'\n'
     end
   end
-  local text = text.."\n_All Plugins Reloaded_\n\n"..nact.." *Plugins Enabled*\n"..nsum.." *Plugins Installed*\n\n:D"
+  local text = text.."\n🆙_All Plugins Reloaded_🆙\n\n"..nact.."  ✔️*Plugins Enabled*\n"..nsum.." 📂*Plugins Installed*\n\n:D"
 return text
 end
 
