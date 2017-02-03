@@ -531,7 +531,7 @@ return tdcli.sendMessage(arg.chat_id, "", 0, "》_User_ "..user_name.." *"..data
 return tdcli.sendMessage(arg.chat_id, "", 0, "》_User_ "..user_name.." *"..data.id_.."* *از قبل صاحب گروه نبود*", 0, "md")
       end
    end
-》administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = nil
+administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
    if not lang then
 return tdcli.sendMessage(arg.chat_id, "", 0, "》_User_ "..user_name.." *"..data.id_.."* _is no longer a_ *group owner*", 0, "md")
