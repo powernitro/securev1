@@ -1910,7 +1910,7 @@ data[tostring(target)]["mutes"]["mute_contact"] = "no"
 if not lang then
 return "📞*Mute Contact* _Has Been Disabled_🔊" 
 else
-return "📞بیصدا کردن مخاطب غیر فعال شد🔊"❗️
+return "📞بیصدا کردن مخاطب غیر فعال شد🔊"
 end
 end
 end
