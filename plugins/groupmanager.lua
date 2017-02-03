@@ -2073,7 +2073,7 @@ end
 
 local mute_document = data[tostring(target)]["mutes"]["mute_document"]
  if mute_document == "no" then
-if not lang then❗️
+if not lang then
 return "🗂*Mute Document* _Is Already Disabled_🔊" 
 elseif lang then
 return "🗂بیصدا کردن اسناد غیر فعال است🔊"
