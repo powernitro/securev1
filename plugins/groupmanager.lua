@@ -32,7 +32,7 @@ end
           lock_markdown = 'no',
           flood = 'yes',
           lock_bots = 'yes',
-          welcome = 'yes'
+          welcome = 'no'
           },
    mutes = {
                   mute_fwd = 'no',
