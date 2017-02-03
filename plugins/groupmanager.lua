@@ -208,7 +208,7 @@ else
    message = '📋*لیست مدیران گروه👤 :*\n'
 end
   for k,v in pairs(data[tostring(msg.chat_id_)]['owners']) do
-⚠️    message = message ..i.. '- '..v..' [' ..k.. '] \n'
+    message = message ..i.. '- '..v..' [' ..k.. '] \n'
    i = i + 1
 end
   return message
