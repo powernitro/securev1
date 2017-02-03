@@ -2026,7 +2026,7 @@ data[tostring(target)]["mutes"]["mute_location"] = "no"
 if not lang then
 return "🔹*Mute Location* _Has Been Disabled_🔊" 
 else
-return "🔹بیصدا کردن موقعیت غیر فعال شد🔊"❗️
+return "🔹بیصدا کردن موقعیت غیر فعال شد🔊"
 end
 end
 end
