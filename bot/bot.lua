@@ -88,17 +88,8 @@ function create_config( )
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[🤖secure v1.5🤖
+    info_text = [[secure v1.5
 
-👤Developer: @im_Einstein 
-
-👤Manager: @im_Einstein 
-
-💌Special thanks to magic team members
-
-⚜Our channel : @MAGIC_TEAAM
-
- :D
 ]],
   }
   serialize_to_file(config, './data/config.lua')
