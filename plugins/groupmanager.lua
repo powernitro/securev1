@@ -161,7 +161,7 @@ local lang = redis:get(hash)
     return "⚠️گروه به لیست گروه های مدیریتی ربات اضافه نشده است⚠️"
   end
  end
-⚠️  -- determine if table is empty
+ -- determine if table is empty
   if next(data[tostring(msg.chat_id_)]['mods']) == nil then --fix way
   if not lang then
     return "👥_No_ *moderator* _in this group_👥"
