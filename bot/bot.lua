@@ -493,9 +493,9 @@ else
               end
 				end
        if not lang then
-   message = '*List of banned users :*\n'
+   message = '📋*List of banned users :*\n'
          else
-   message = '_لیست کاربران محروم شده از گروه :_\n'
+   message = '📋_لیست کاربران محروم شده از گروه :_\n'
      end
   for k,v in pairs(data[tostring(chat_id)]['banned']) do
     message = message ..i.. '- '..v..' [' ..k.. '] \n'
@@ -509,7 +509,7 @@ local hash = "gp_lang:"..chat_id
 local lang = redis:get(hash)
     local data = load_data(_config.moderation.data)
     local i = 1
-  if not data[tostring(msg.chat_id_)] then
+📛  if not data[tostring(msg.chat_id_)] then
   if not lang then
     return '_Group is not added_'
 else
@@ -525,9 +525,9 @@ else
              end
 				end
       if not lang then
-   message = '*List of silent users :*\n'
+   message = '📋*List of silent users 🔇:*\n'
        else
-   message = '_لیست کاربران سایلنت شده :_\n'
+   message = '📋_لیست کاربران سایلنت شده 🔇:_\n'
     end
   for k,v in pairs(data[tostring(chat_id)]['is_silent_users']) do
     message = message ..i.. '- '..v..' [' ..k.. '] \n'
@@ -553,9 +553,9 @@ local lang = redis:get(hash)
              end
 				end
         if not lang then
-   message = '*List of globally banned users :*\n'
+   message = '📋*List of globally banned users📛 :*\n'
    else
-   message = '_لیست کاربران محروم شده از گروه های ربات :_\n'
+   message = '📋_لیست کاربران محروم شده از گروه های ربات📛 :_\n'
    end
   for k,v in pairs(data['gban_users']) do
     message = message ..i.. '- '..v..' [' ..k.. '] \n'
@@ -592,9 +592,9 @@ else
     save_data(_config.moderation.data, data)
     end
       if not lang then
-       filterlist = '*List of filtered words :*\n'
+       filterlist = '📋*List of filtered words🔏 :*\n'
          else
-       filterlist = '_لیست کلمات فیلتر شده :_\n'
+       filterlist = '📋_لیست کلمات فیلتر شده 🔏:_\n'
     end
  local i = 1
    for k,v in pairs(data[tostring(msg.chat_id_)]['filterlist']) do
