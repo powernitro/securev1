@@ -1174,9 +1174,9 @@ local hash = "gp_lang:"..msg.chat_id_
 local lang = redis:get(hash)
 if not is_mod(msg) then
 if not lang then
- 	return "❗️_You're Not_ *Moderator*❗️"
+ 	return "🍆😑gσн кнσя∂ι ѕєттιηg zα∂ι😂"
 else
-  return "❗️شما مدیر گروه نمیباشید❗️"
+  return "🍆ڳہ ݗۏڔدۍ ښݓيݧڱ زڋے😑😂"
 end
 end
 local data = load_data(_config.moderation.data)
