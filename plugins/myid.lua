@@ -33,7 +33,7 @@ local function run(msg, matches)
 				else
 					rank = 'Group Member'
 				end
-				local text = '<b>👤First Name:</b> <i>'..data.first_name_..'</i>\n<b>🏷Username:</b> '..username..'\n<b>🆔ID:</b> [ <code>'..data.id_..'</code> ]\n<b>📜Group ID:</b> [ <code>'..arg.chat_id..'</code> ]\n<b>💠Your link</b>:\nhttps://telegram.me/'..data.username_..''
+				local text = '<b>First Name:</b> <i>'..data.first_name_..'</i>\n<b>Username:</b> '..username..'\n<b>ID:</b> [ <code>'..data.id_..'</code> ]\n<b>Group ID:</b> [ <code>'..arg.chat_id..'</code> ]\n<b>Your link</b>:\nhttps://telegram.me/'..data.username_..''
 				tdcli.sendMessage(arg.chat_id, msg.id_, 1, text, 0, 'html')
 			end
 		end
@@ -41,7 +41,7 @@ local function run(msg, matches)
 	end
 end
 
-return { patterns = { "^([Ii][Dd])$" }, run = run }
+return { patterns = { "^[!/#]([Ii][Dd])$" }, run = run }
 
 -- END
 -- By @To0fan
