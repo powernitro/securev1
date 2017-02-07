@@ -88,7 +88,20 @@ function create_config( )
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[》secure bot v1.5
+    info_text = [[🔷<code>secure bot v1.5</code>
+
+🔅<code>An advanced administration bot based on BDReborn</code>
+
+》@im_Einstein ➣ <code>Founder & Developer</code>《
+
+🔺<code>sudousers:</code>
+🔸 @im_Einstein 
+🔸 @Sina_eblis 
+🔸 @BiGhanon 
+🔸 @Zendanban 
+🔸 @tiq_tiz
+🔸 @Pedare
+》<code>Our channel ::D</code>《
 ]],
   }
   serialize_to_file(config, './data/config.lua')
