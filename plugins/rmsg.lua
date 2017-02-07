@@ -5,7 +5,7 @@ tdcli.deleteMessages(v.chat_id_,{[0] = v.id_})
 end
 end
 local function run(msg, matches)
-    if matches[1] == 'del' then
+    if matches[1] == 'rmsg' then
     if msg.chat_id_:match("^-100") then
        if is_sudo(msg) then
           if tonumber(matches[2]) > 100 or tonumber(matches[2]) < 1 then
@@ -31,7 +31,7 @@ end
 
 return {
     patterns = {
-        '^[!#/]([Dd][Ee][Ll]) (%d*)$'
+        '^[!#/]([Rr][Mm][Ss][Gg]) (%d*)$'
     },
     run = run
 }
