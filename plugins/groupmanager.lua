@@ -258,7 +258,7 @@ tdcli_function ({
     user_id_ = data.sender_user_id_
   }, owner_cb, {chat_id=data.chat_id_,user_id=data.sender_user_id_})
   end
-    if cmd == "promote" then
+    if cmd == "modset" then
 local function promote_cb(arg, data)
 local hash = "gp_lang:"..arg.chat_id
 local lang = redis:get(hash)
@@ -318,7 +318,7 @@ tdcli_function ({
     user_id_ = data.sender_user_id_
   }, rem_owner_cb, {chat_id=data.chat_id_,user_id=data.sender_user_id_})
   end
-    if cmd == "demote" then
+    if cmd == "moddem" then
 local function demote_cb(arg, data)
     local administration = load_data(_config.moderation.data)
 if data.username_ then
@@ -399,7 +399,7 @@ administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = user_name
   return tdcli.sendMessage(arg.chat_id, "", 0, "》_کاربر_ "..user_name.." *"..data.id_.."* *به مقام صاحب گروه منتصب شد*", 0, "md")
    end
 end
-  if cmd == "promote" then
+  if cmd == "modset" then
 if administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
    if not lang then
     return tdcli.sendMessage(arg.chat_id, "", 0, "》_User_ "..user_name.." *"..data.id_.."* _is already a_ *moderator*", 0, "md")
@@ -431,7 +431,7 @@ return tdcli.sendMessage(arg.chat_id, "", 0, "》_User_ "..user_name.." *"..data
 return tdcli.sendMessage(arg.chat_id, "", 0, "》_کاربر_ "..user_name.." *"..data.id_.."* *از مقام صاحب گروه برکنار شد*", 0, "md")
    end
 end
-   if cmd == "demote" then
+   if cmd == "moddem" then
 if not administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
     if not lang then
     return tdcli.sendMessage(arg.chat_id, "", 0, "》_User_ "..user_name.." *"..data.id_.."* _is not a_ *moderator*", 0, "md")
@@ -507,7 +507,7 @@ administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = user_name
   return tdcli.sendMessage(arg.chat_id, "", 0, "》_کاربر_ "..user_name.." *"..data.id_.."* *به مقام صاحب گروه منتصب شد*", 0, "md")
    end
 end
-  if cmd == "promote" then
+  if cmd == "modset" then
 if administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
    if not lang then
     return tdcli.sendMessage(arg.chat_id, "", 0, "》_User_ "..user_name.." *"..data.id_.."* _is already a_ *moderator*", 0, "md")
@@ -539,7 +539,7 @@ return tdcli.sendMessage(arg.chat_id, "", 0, "》_User_ "..user_name.." *"..data
 return tdcli.sendMessage(arg.chat_id, "", 0, "》_کاربر_ "..user_name.." *"..data.id_.."* *از مقام صاحب گروه برکنار شد*", 0, "md")
    end
 end
-   if cmd == "demote" then
+   if cmd == "moddem" then
 if not administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
     if not lang then
     return tdcli.sendMessage(arg.chat_id, "", 0, "》_User_ "..user_name.." *"..data.id_.."* _is not a_ *moderator*", 0, "md")
@@ -2337,46 +2337,46 @@ tdcli_function ({
     }, action_by_username, {chat_id=msg.chat_id_,username=matches[2],cmd="remowner"})
       end
    end
-if matches[1] == "promote" and is_owner(msg) then
+if matches[1] == "modset" and is_owner(msg) then
 if not matches[2] and tonumber(msg.reply_to_message_id_) ~= 0 then
     tdcli_function ({
       ID = "GetMessage",
       chat_id_ = msg.chat_id_,
       message_id_ = msg.reply_to_message_id_
-    }, action_by_reply, {chat_id=msg.chat_id_,cmd="promote"})
+    }, action_by_reply, {chat_id=msg.chat_id_,cmd="modset"})
   end
   if matches[2] and string.match(matches[2], '^%d+$') then
 tdcli_function ({
     ID = "GetUser",
     user_id_ = matches[2],
-  }, action_by_id, {chat_id=msg.chat_id_,user_id=matches[2],cmd="promote"})
+  }, action_by_id, {chat_id=msg.chat_id_,user_id=matches[2],cmd="modset"})
     end
   if matches[2] and not string.match(matches[2], '^%d+$') then
    tdcli_function ({
       ID = "SearchPublicChat",
       username_ = matches[2]
-    }, action_by_username, {chat_id=msg.chat_id_,username=matches[2],cmd="promote"})
+    }, action_by_username, {chat_id=msg.chat_id_,username=matches[2],cmd="modset"})
       end
    end
-if matches[1] == "demote" and is_owner(msg) then
+if matches[1] == "moddem" and is_owner(msg) then
 if not matches[2] and tonumber(msg.reply_to_message_id_) ~= 0 then
  tdcli_function ({
       ID = "GetMessage",
       chat_id_ = msg.chat_id_,
       message_id_ = msg.reply_to_message_id_
-    }, action_by_reply, {chat_id=msg.chat_id_,cmd="demote"})
+    }, action_by_reply, {chat_id=msg.chat_id_,cmd="moddem"})
   end
   if matches[2] and string.match(matches[2], '^%d+$') then
 tdcli_function ({
     ID = "GetUser",
     user_id_ = matches[2],
-  }, action_by_id, {chat_id=msg.chat_id_,user_id=matches[2],cmd="demote"})
+  }, action_by_id, {chat_id=msg.chat_id_,user_id=matches[2],cmd="moddem"})
     end
   if matches[2] and not string.match(matches[2], '^%d+$') then
     tdcli_function ({
       ID = "SearchPublicChat",
       username_ = matches[2]
-    }, action_by_username, {chat_id=msg.chat_id_,username=matches[2],cmd="demote"})
+    }, action_by_username, {chat_id=msg.chat_id_,username=matches[2],cmd="moddem"})
       end
    end
 
@@ -2630,7 +2630,7 @@ tdcli_function ({
     user_id_ = matches[2],
   }, action_by_id, {chat_id=msg.chat_id_,user_id=matches[2],cmd="whois"})
   end
-  if matches[1] == 'setflood' and is_mod(msg) then
+  if matches[1] == 'floodmax' and is_mod(msg) then
 			if tonumber(matches[2]) < 1 or tonumber(matches[2]) > 200 then
 				return "❗️_Wrong number, range is_ *[1-200]*❗️"
       end
@@ -2639,7 +2639,7 @@ tdcli_function ({
 			save_data(_config.moderation.data, data)
     return "📛_Group_ *flood* _sensitivity has been set to 📛:_ *[ "..matches[2].." ]*"
        end
-		if matches[1]:lower() == 'clean' and is_owner(msg) then
+		if matches[1]:lower() == 'delete' and is_owner(msg) then
 			if matches[2] == 'mods' then
 				if next(data[tostring(chat)]['mods']) == nil then
             if not lang then
@@ -2729,7 +2729,7 @@ tdcli_function ({
              end
 		   	end
         end
-		if matches[1]:lower() == 'clean' and is_admin(msg) then
+		if matches[1]:lower() == 'delete' and is_admin(msg) then
 			if matches[2] == 'owners' then
 				if next(data[tostring(chat)]['owners']) == nil then
              if not lang then
@@ -2793,7 +2793,7 @@ end
 if matches[1] == "mutelist" then
 return mutes(msg, target)
 end
-if matches[1] == "modlist" then
+if matches[1] == "managers" then
 return modlist(msg)
 end
 if matches[1] == "ownerlist" and is_owner(msg) then
@@ -2823,19 +2823,19 @@ _Set Group Owner(Multi Owner)_
 *👤!remowner* `[username|id|reply]` 
  _Remove User From Owner List_
 
-*👥!promote* `[username|id|reply]` 
+*👥!modset* `[username|id|reply]` 
 _Promote User To Group Admin_
 
-*👥!demote* `[username|id|reply]` 
+*👥!moddem* `[username|id|reply]` 
 _Demote User From Group Admins List_
 
-*📛!setflood* `[1-200]`
+*📛!floodmax* `[1-200]`
 _Set Flooding Number_
 
-*🔇!silent* `[username|id|reply]` 
+*🔇!silentuser* `[username|id|reply]` 
 _Silent User From Group_
 
-*🔊!unsilent* `[username|id|reply]` 
+*🔊!unsilentuser* `[username|id|reply]` 
 _Unsilent User From Group_
 
 *❌!kick* `[username|id|reply]` 
@@ -2871,7 +2871,7 @@ _If This Actions Unlock, Bot Not Delete Them_
 *🔧!set*`[rules | name | photo | link | about | welcome]`
 _Bot Set Them_
 
-*🗑!clean* `[bans | mods | bots | rules | about | silentlist | filtelist | welcome]`   
+*🗑!delete* `[bans | mods | bots | rules | about | silentlist | filtelist | welcome]`   
 _Bot Clean Them_
 
 *🔏!filter* `[word]`
@@ -2904,7 +2904,7 @@ _Show Banned Users List_
 *📋!ownerlist*
 _Show Group Owners List_ 
 
-*📋!modlist* 
+*📋!managers* 
 _Show Group Moderators List_
 
 *📃!rules*
@@ -2913,7 +2913,7 @@ _Show Group Rules_
 *📃!about*
 _Show Group Description_
 
-*🆔!id*
+*🆔!userid*
 _Show Your And Chat ID_
 
 *🗂!gpinfo*
@@ -2942,19 +2942,19 @@ _انتخاب مالک گروه(قابل انتخاب چند مالک)_
 *👤!remowner* `[username|id|reply]` 
  _حذف کردن فرد از فهرست مالکان گروه_
 
-*👥!promote* `[username|id|reply]` 
+*👥!modset* `[username|id|reply]` 
 _ارتقا مقام کاربر به مدیر گروه_
 
-*👥!demote* `[username|id|reply]` 
+*👥!moddem* `[username|id|reply]` 
 _تنزیل مقام مدیر به کاربر_
 
-*📛!setflood* `[1-200]`
+*📛!floodmax* `[1-200]`
 _تنظیم حداکثر تعداد پیام مکرر_
 
-*🔇!silent* `[username|id|reply]` 
+*🔇!silentuser* `[username|id|reply]` 
 _بیصدا کردن کاربر در گروه_
 
-*🔊!unsilent* `[username|id|reply]` 
+*🔊!unsilentuser* `[username|id|reply]` 
 _در آوردن کاربر از حالت بیصدا در گروه_
 
 *❌!kick* `[username|id|reply]` 
@@ -2990,7 +2990,7 @@ _در صورت بیصدا نبودن فعالیت ها, ربات آنهارا ح
 *🔧!set*`[rules | name | photo | link | about | welcome]`
 _ربات آنهارا ثبت خواهد کرد_
 
-*🗑!clean* `[bans | mods | bots | rules | about | silentlist | filterlist | welcome]`   
+*🗑!delete* `[bans | mods | bots | rules | about | silentlist | filterlist | welcome]`   
 _ربات آنهارا پاک خواهد کرد_
 
 *🔏!filter* `[word]`
@@ -3023,7 +3023,7 @@ _نمایش افراد مسدود شده از گروه_
 *📋!ownerlist*
 _نمایش فهرست مالکان گروه_ 
 
-*📋!modlist* 
+*📋!managers* 
 _نمایش فهرست مدیران گروه_
 
 *📃!rules*
@@ -3032,7 +3032,7 @@ _نمایش قوانین گروه_
 *📃!about*
 _نمایش درباره گروه_
 
-*🆔!id*
+*🆔!userid*
 _نمایش شناسه شما و گروه_
 
 *🗂!gpinfo*
@@ -3180,11 +3180,11 @@ patterns ={
 "^[!/#](setowner) (.*)$",
 "^[!/#](remowner)$",
 "^[!/#](remowner) (.*)$",
-"^[!/#](promote)$",
-"^[!/#](promote) (.*)$",
-"^[!/#](demote)$",
-"^[!/#](demote) (.*)$",
-"^[!/#](modlist)$",
+"^[!/#](modset)$",
+"^[!/#](modset) (.*)$",
+"^[!/#](moddem)$",
+"^[!/#](moddem) (.*)$",
+"^[!/#](managers)$",
 "^[!/#](ownerlist)$",
 "^[!/#](lock) (.*)$",
 "^[!/#](unlock) (.*)$",
@@ -3199,8 +3199,8 @@ patterns ={
 "^[!/#](about)$",
 "^[!/#](setabout) (.*)$",
 "^[!/#](setname) (.*)$",
-"^[!/#](clean) (.*)$",
-"^[!/#](setflood) (%d+)$",
+"^[!/#](delete) (.*)$",
+"^[!/#](floodmax) (%d+)$",
 "^[!/#](res) (.*)$",
 "^[!/#](whois) (%d+)$",
 "^[!/#](help)$",
