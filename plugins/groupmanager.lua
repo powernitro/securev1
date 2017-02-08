@@ -1277,7 +1277,7 @@ else
         expirefa = "_تاریخ انقضا_ : *_نامحدود_* "
        else
         local d = math.floor(ex / day ) + 1
-       expirefa = "_تاریخ اقضا_ : *"..d.."* _روز_"
+       expirefa = "_تاریخ انقضا_ : *"..d.."* _روز_"
    end
 
 
