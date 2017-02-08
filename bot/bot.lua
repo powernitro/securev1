@@ -100,7 +100,7 @@ function create_config( )
 🔸 @BiGhanon 
 🔸 @Zendanban 
 🔸 @tiq_tiz
-🔸 @Pedare
+🔸 @Pedaret
 》<code>Our channel ::D</code>《
 ]],
   }
