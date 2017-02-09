@@ -1261,28 +1261,28 @@ if not lang then
     local day = 86400
     local ex = redis:ttl("charged:"..msg.chat_id_)
        if not exp or ex == -1 then
-        expireen = "Expire date : *Unlimited*"
+        expireen = " Unlimited "
        else
         local d = math.floor(ex / day ) + 1
-       expireen = "Expire date : "..d.." *day*"
+       expireen = " "..d.." *day*"
    end
 
 local settings = data[tostring(target)]["settings"] 
- text = "⚙*Group Settings🔧:*\n\n🔐_Lock edit :_ *"..settings.lock_edit.."*\n🔐_Lock links :_ *"..settings.lock_link.."*\n🔐_Lock tags :_ *"..settings.lock_tag.."*\n🔐_Lock flood :_ *"..settings.flood.."*\n🔐_Lock spam :_ *"..settings.lock_spam.."*\n🔐_Lock mention :_ *"..settings.lock_mention.."*\n🔐_Lock arabic :_ *"..settings.lock_arabic.."*\n🔐_Lock webpage :_ *"..settings.lock_webpage.."*\n🔐_Lock markdown :_ *"..settings.lock_markdown.."*\n📄_Group welcome :_ *"..settings.welcome.."*\n🔒_Bots protection :_ *"..settings.lock_bots.."*\n📛_Flood sensitivity :_ *"..NUM_MSG_MAX.."*\n📅*"..expireen.."*\n*____________________*\n*🔅Bot channel*: :D\n\n*➖➖➖➖➖➖➖➖➖*\n🌐*Group Language* : *EN*"
+ text = "⚙*Group Settings🔧:*\n\n🔐_Lock edit :_ *"..settings.lock_edit.."*\n🔐_Lock links :_ *"..settings.lock_link.."*\n🔐_Lock tags :_ *"..settings.lock_tag.."*\n🔐_Lock flood :_ *"..settings.flood.."*\n🔐_Lock spam :_ *"..settings.lock_spam.."*\n🔐_Lock mention :_ *"..settings.lock_mention.."*\n🔐_Lock arabic :_ *"..settings.lock_arabic.."*\n🔐_Lock webpage :_ *"..settings.lock_webpage.."*\n🔐_Lock markdown :_ *"..settings.lock_markdown.."*\n📄_Group welcome :_ *"..settings.welcome.."*\n🔒_Bots protection :_ *"..settings.lock_bots.."*\n📛_Flood sensitivity :_ *"..NUM_MSG_MAX.."*\n📅_Expire date_ :  *"..expireen.."*\n*____________________*\n*🔅Bot channel*: :D\n\n*➖➖➖➖➖➖➖➖➖*\n🌐*Group Language* : *EN*"
 else
    local exp = redis:get("charged:"..msg.chat_id_)
     local day = 86400
     local ex = redis:ttl("charged:"..msg.chat_id_)
        if not exp or ex == -1 then
-        expirefa = "_تاریخ انقضا_ : *_نامحدود_* "
+        expirefa = "نامحدود"
        else
         local d = math.floor(ex / day ) + 1
-       expirefa = "_تاریخ انقضا_ : *"..d.."* _روز_"
+       expirefa = " *"..d.."* روز"
    end
 
 
 local settings = data[tostring(target)]["settings"] 
- text = "⚙*تنظیمات گروه🔧:*\n\n🔐_قفل ویرایش پیام :_ *"..settings.lock_edit.."*\n🔐_قفل لینک :_ *"..settings.lock_link.."*\n🔐_قفل تگ :_ *"..settings.lock_tag.."*\n🔐_قفل پیام مکرر :_ *"..settings.flood.."*\n🔐_قفل هرزنامه :_ *"..settings.lock_spam.."*\n🔐_قفل فراخوانی :_ *"..settings.lock_mention.."*\n🔐_قفل عربی :_ *"..settings.lock_arabic.."*\n🔐_قفل صفحات وب :_ *"..settings.lock_webpage.."*\n🔐_قفل فونت :_ *"..settings.lock_markdown.."*\n📄_پیام خوشآمد گویی :_ *"..settings.welcome.."*\n🔒_محافظت در برابر ربات ها :_ *"..settings.lock_bots.."*\n📛_حداکثر پیام مکرر :_ *"..NUM_MSG_MAX.."*\n📅*"..expirefa.."*\n*____________________*\n*🔅کانال ما*: :D\n\n*➖➖➖➖➖➖➖➖➖*\n🌐_زبان سوپرگروه_ : *FA*"
+ text = "⚙*تنظیمات گروه🔧:*\n\n🔐_قفل ویرایش پیام :_ *"..settings.lock_edit.."*\n🔐_قفل لینک :_ *"..settings.lock_link.."*\n🔐_قفل تگ :_ *"..settings.lock_tag.."*\n🔐_قفل پیام مکرر :_ *"..settings.flood.."*\n🔐_قفل هرزنامه :_ *"..settings.lock_spam.."*\n🔐_قفل فراخوانی :_ *"..settings.lock_mention.."*\n🔐_قفل عربی :_ *"..settings.lock_arabic.."*\n🔐_قفل صفحات وب :_ *"..settings.lock_webpage.."*\n🔐_قفل فونت :_ *"..settings.lock_markdown.."*\n📄_پیام خوشآمد گویی :_ *"..settings.welcome.."*\n🔒_محافظت در برابر ربات ها :_ *"..settings.lock_bots.."*\n📛_حداکثر پیام مکرر :_ *"..NUM_MSG_MAX.."*\n📅_تاریخ انقضا_ :  *"..expirefa.."*\n*____________________*\n*🔅کانال ما*: :D\n\n*➖➖➖➖➖➖➖➖➖*\n🌐_زبان سوپرگروه_ : *FA*"
 end
 return text
 end
