@@ -79,7 +79,7 @@ end
 	if is_sudo(msg) then
   if matches[1] == 'leave' and matches[2] then
 	   tdcli.sendMessage(matches[2], 0, 1, "ربات به دلایلی گروه را ترک میکند\nبرای اطلاعات بیشتر میتوانید با @im_Einstein  در ارتباط باشید.\nدر صورت ریپورت بودن میتوانید با ربات زیر به ما پیام دهید\n\n@lm10_eblis_bot", 1, 'html')
-  --tdcli.changeChatMemberStatus(matches[2], our_id, 'Left', dl_cb, nil)
+  tdcli.changeChatMemberStatus(matches[2], our_id, 'Left', dl_cb, nil)--
 return tdcli.sendMessage(msg.chat_id_, msg.id_, 1, 'ربات با موفقیت از گروه '..matches[2]..' خارج شد.', 1,'html')
   end
   if matches[1]:lower() == 'plan' and matches[2] == '1' and matches[3] then
