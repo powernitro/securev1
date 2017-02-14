@@ -43,7 +43,7 @@ if gp_type(msg.chat_id_) ~= 'pv' then
 if not redis:get("charged:"..msg.chat_id_) and not is_sudo(msg) then
 local sudo = 206480168
 local t1 = "شارژ این گروه به اتمام رسید \n\nID : "..msg.chat_id_..'\n\nدر صورتی که میخواهید ربات این گروه را ترک کند از دستور زیر استفاده کنید\n\n/leave '..msg.chat_id_..'\nبرای جوین دادن توی این گروه میتونی از دستور زیر استفاده کنی:\n/join91752'..msg.chat_id_..'\n_________________\nدر صورتی که میخواهید گروه رو دوباره شارژ کنید میتوانید از کد های زیر استفاده کنید...\n\n<code>برای شارژ 1 ماهه:</code>\n/plan1'..msg.chat_id_..'\n\n<code>برای شارژ 3 ماهه:</code>\n/plan2'..msg.chat_id_..'\n\n<code>برای شارژ نامحدود:</code>\n/plan3'..msg.chat_id_
-local t2 = "شارژ این گروه به اتمام رسید و ربات از گروه خارج میشود...\nبرای تمدید کردن ربات به @im_Einstein  پیام دهید.\nدر صورت ریپورت بودن میتوانید با ربات زیر با ما در ارتباط باشید:\n @lm10_eblis_bot"
+local t2 = "شارژ این گروه به اتمام رسید و ربات از گروه خارج میشود...\nبرای تمدید کردن ربات به @secure_sudo   پیام دهید.\nدر صورت ریپورت بودن میتوانید با ربات زیر با ما در ارتباط باشید:\n @lm10_eblis_bot"
 tdcli.sendMessage(sudo, 0, 1, t1, 1, 'html')
 tdcli.sendMessage(msg.chat_id_, 0, 1, t2, 1, 'html')
        modrem(msg)
@@ -78,7 +78,7 @@ end
 end
 	if is_sudo(msg) then
   if matches[1] == 'leave' and matches[2] then
-	   tdcli.sendMessage(matches[2], 0, 1, "ربات به دلایلی گروه را ترک میکند\nبرای اطلاعات بیشتر میتوانید با @im_Einstein  در ارتباط باشید.\nدر صورت ریپورت بودن میتوانید با ربات زیر به ما پیام دهید\n\n@lm10_eblis_bot", 1, 'html')
+	   tdcli.sendMessage(matches[2], 0, 1, "ربات به دلایلی گروه را ترک میکند\nبرای اطلاعات بیشتر میتوانید با @secure_sudo   در ارتباط باشید.\nدر صورت ریپورت بودن میتوانید با ربات زیر به ما پیام دهید\n\n@lm10_eblis_bot", 1, 'html')
   tdcli.changeChatMemberStatus(matches[2], our_id, 'Left', dl_cb, nil)--
 return tdcli.sendMessage(msg.chat_id_, msg.id_, 1, 'ربات با موفقیت از گروه '..matches[2]..' خارج شد.', 1,'html')
   end
