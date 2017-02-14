@@ -88,18 +88,17 @@ function create_config( )
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
-    info_text = [[🔷<code>secure bot v1.5</code>
+    info_text = [[🔷<code>secure bot v2</code>
 
 🔅<code>An advanced administration bot based on BDReborn</code>
 
-》@im_Einstein ➣ <code>Founder & Developer</code>《
+》@secure_sudo ➣ <code>Founder & Developer</code>《
 
 🔺<code>sudousers:</code>
-🔸 @im_Einstein 
-🔸 @Sina_eblis 
-🔸 @BiGhanon 
-🔸 @Zendanban 
-🔸 @tiq_tiz
+🔸 @secure_sudo 
+🔸 @Sina_eblis  
+🔸 @Sharp_Sudo 
+🔸 @KING_HOSEIN
 🔸 @Pedaret
 》<code>Our channel ::D</code>《
 ]],
