@@ -29,7 +29,7 @@ chmod +x beyond.sh
 ### One command
 To install everything in one command, use:
 ```sh
-cd $HOME && git clone https://github.com/powernitro/secure.git && cd secure && chmod +x beyond.sh && ./beyond.sh install && ./beyond.sh
+cd $HOME && git clone https://github.com/powernitro/secure.git && cd secure && chmod +x secure.sh && ./secure.sh install && ./secure.sh
 ```
 
 * * *
